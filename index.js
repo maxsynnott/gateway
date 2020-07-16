@@ -9,9 +9,20 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.get('/login/github', (req, res) => {
-	res.redirect('https://botletics-users.herokuapp.com/api/v1/auth/github')
-})
+app.get(
+	'/login/github',
+	(req, res) => {
+		res.redirect('https://botletics-users.herokuapp.com/api/v1/auth/github')
+	}
+)
+
+app.get(
+	'/profile',
+	(req, res) => {
+		console.log("LOGGED IN")
+		console.log(req.user)
+	}
+)
 
 // Catch 404 and forward to error handler
 app.use((req, res, next) => {
